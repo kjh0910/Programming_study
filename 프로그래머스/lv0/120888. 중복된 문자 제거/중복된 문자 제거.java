@@ -1,21 +1,9 @@
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 class Solution {
     public String solution(String my_string) {
-        String result = "";
-        
-        Set<Character> set = new LinkedHashSet<Character>();
-
-		for(int i=0; i<my_string.length(); i++) {
-
-			set.add(my_string.charAt(i));
-
-		}
-        
-        result = (set.toString()).replace(", ", "").substring(1, set.size()+1);
-        
-        return result;
+        return Arrays.stream(my_string.split("")).distinct().collect(Collectors.joining());
         
     }
 }
